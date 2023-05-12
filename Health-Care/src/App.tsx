@@ -1,14 +1,14 @@
 import React from "react";
-
 import "./App.css";
-import Bmi from "./Components/Bmi";
-
+import Tracker from "./Pages/Tracker";
+import Navbar from "./Components/Navbar";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 function App() {
   return (
     <div className="App">
-      <Bmi/>
-      
+      <Navbar />
     </div>
   );
 }
