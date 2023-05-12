@@ -2,70 +2,126 @@ import { FormLabel, Input, Button, Box } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "../CSS/Tracker.css";
 import { useToast } from "@chakra-ui/react";
+import axios from "axios";
+
 const Bmi = () => {
-  const [age, setAge] = useState<number>(0);
-  const [height, setHeight] = useState<number>(0);
-  const [weight, setWeight] = useState<number>(0);
+  // const [age, setAge] = useState<number>(0);
+  // const [height, setHeight] = useState<number>(0);
+  // const [weight, setWeight] = useState<number>(0);
+  const [bmi, setBmi] = useState<{age: string; height: string; weight: string}>({
+    age: "",
+    height: "",
+    weight: ""
+  });
   const toast = useToast();
- 
 
-  const handleAge = (e: any) => {
-    setAge(e.target.value);
-  };
-  const handleHeight = (e: any) => {
-    setHeight(e.target.value);
-  };
-  const handleWeight = (e: any) => {
-    setWeight(e.target.value);
-  };
-  console.log(height, weight, age);
-  const handleSubmit = () => {
-    let value = weight / Math.pow(height / 100, 2);
 
-    if (value <= 18.5) {
-      toast({
-        position: "top",
-        title: "BMi calculation",
-        description: `BMI value ${value}"\n" You are underweight`,
-        status: "success",
-        duration: 4000,
-        isClosable: true,
-      });
-    } else if (value > 18.5 && value <= 24.9) {
-      toast({
-        position: "top",
-        title: "BMi calculation",
-        description: `BMI value ${value}"\n" You are Healthy person`,
-        status: "success",
-        duration: 4000,
-        isClosable: true,
-      });
-    } else if (value > 25 && value < 29.9) {
-      toast({
-        position: "top",
-        title: "BMi calculation",
-        description: `BMI value ${value}"\n" You are Overweight`,
-        status: "success",
-        duration: 4000,
-        isClosable: true,
-      });
-    } else {
-      toast({
-        position: "top",
-        title: "BMi calculation",
-        description: `BMI value ${value}"\n"You are suffering from obesity U are in danger please consult the doctor `,
-        status: "success",
-        duration: 4000,
-        isClosable: true,
-      });
-    }
-    setAge(0);
-    setHeight(0);
-    setWeight(0);
-  };
+  // const handleAge = (e: any) => {
+  //   setAge(e.target.value);
+  // };
+  // const handleHeight = (e: any) => {
+  //   setHeight(e.target.value);
+  // };
+  // const handleWeight = (e: any) => {
+  //   setWeight(e.target.value);
+  // };
+  // console.log(height, weight, age);
+
+  const handleSubmit =(e:React.FormEvent<HTMLFormElement>) =>{
+    e.preventDefault();
+    axios.post('http://localhost:8080/bmi',{
+       ...bmi
+    }).then((res)=>{
+      console.log(res.data)
+      let value = res.data.weight / Math.pow(res.data.height / 100, 2);
+      // console.log(value)
+      if (value <= 18.5) {
+            toast({
+              position: "top",
+              title: "BMi calculation",
+              description: `BMI value ${value}"\n" You are underweight`,
+              status: "success",
+              duration: 4000,
+              isClosable: true,
+            });
+          } else if (value > 18.5 && value <= 24.9) {
+            toast({
+              position: "top",
+              title: "BMi calculation",
+              description: `BMI value ${value}"\n" You are Healthy person`,
+              status: "success",
+              duration: 4000,
+              isClosable: true,
+            });
+          } else if (value > 25 && value < 29.9) {
+            toast({
+              position: "top",
+              title: "BMi calculation",
+              description: `BMI value ${value}"\n" You are Overweight`,
+              status: "success",
+              duration: 4000,
+              isClosable: true,
+            });
+          } else {
+            toast({
+              position: "top",
+              title: "BMi calculation",
+              description: `BMI value ${value}"\n"You are suffering from obesity U are in danger please consult the doctor `,
+              status: "success",
+              duration: 4000,
+              isClosable: true,
+            });
+          }
+    })
+  }
+  
+  // const handleSubmit = () => {
+  //   let value = weight / Math.pow(height / 100, 2);
+
+  //   if (value <= 18.5) {
+  //     toast({
+  //       position: "top",
+  //       title: "BMi calculation",
+  //       description: `BMI value ${value}"\n" You are underweight`,
+  //       status: "success",
+  //       duration: 4000,
+  //       isClosable: true,
+  //     });
+  //   } else if (value > 18.5 && value <= 24.9) {
+  //     toast({
+  //       position: "top",
+  //       title: "BMi calculation",
+  //       description: `BMI value ${value}"\n" You are Healthy person`,
+  //       status: "success",
+  //       duration: 4000,
+  //       isClosable: true,
+  //     });
+  //   } else if (value > 25 && value < 29.9) {
+  //     toast({
+  //       position: "top",
+  //       title: "BMi calculation",
+  //       description: `BMI value ${value}"\n" You are Overweight`,
+  //       status: "success",
+  //       duration: 4000,
+  //       isClosable: true,
+  //     });
+  //   } else {
+  //     toast({
+  //       position: "top",
+  //       title: "BMi calculation",
+  //       description: `BMI value ${value}"\n"You are suffering from obesity U are in danger please consult the doctor `,
+  //       status: "success",
+  //       duration: 4000,
+  //       isClosable: true,
+  //     });
+  //   }
+  //   setAge(0);
+  //   setHeight(0);
+  //   setWeight(0);
+  // };
 
   return (
-    <div style={{ width: "100%" }}>
+    <form style={{ width: "100%" }} onSubmit={handleSubmit}>
       <Box width={"80%"}>
         <FormLabel
           style={{
@@ -86,8 +142,8 @@ const Bmi = () => {
             padding: "28px 0px",
             fontSize: "21px",
           }}
-          value={age}
-          onChange={handleAge}
+          value={bmi.age}
+          onChange={(e)=>setBmi({...bmi,age:e.target.value})}
         />
 
         <FormLabel
@@ -107,8 +163,8 @@ const Bmi = () => {
             padding: "28px 0px",
             fontSize: "21px",
           }}
-          value={height}
-          onChange={handleHeight}
+          value={bmi.height}
+          onChange={(e)=>setBmi({...bmi,height:e.target.value})}
         />
         <br />
         <FormLabel
@@ -128,15 +184,15 @@ const Bmi = () => {
             padding: "28px 0px",
             fontSize: "21px",
           }}
-          value={weight}
-          onChange={handleWeight}
+          value={bmi.weight}
+          onChange={(e)=>setBmi({...bmi,weight:e.target.value})}
         />
 
         <br />
         <br />
-        <Button onClick={handleSubmit}>Calculate</Button>
+        <Button type='submit'>Calculate</Button>
       </Box>
-    </div>
+    </form>
   );
 };
 
