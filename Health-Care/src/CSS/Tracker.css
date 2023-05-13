@@ -19,6 +19,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
+  width: 90%;
+  margin: auto;
 }
 .text_text {
   font-weight: 500;
@@ -38,21 +40,31 @@
   height: 600px;
   background-color: #fff;
   margin: auto;
- 
+
   width: 90%;
   margin: auto;
 }
-.run_Image{
-  height:200px
+.run_image {
+  height: 600px;
 }
-.bmi_text{
+.bmi_text {
   font-size: 32px;
-  font-family: 'Lobster Two', cursive;
+  font-family: "Lobster Two", cursive;
   font-weight: 600;
 }
 
-.formable_bmi{
+.formable_bmi {
   font-size: 29px;
+}
+.foot_flex {
+  display: flex;
+}
+.foot_grid {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: auto;
+  background: #fff;
 }
 
 @media (max-width: 1084px) and (min-width: 768px) {
@@ -60,8 +72,21 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .BMI_Images{
+  .BMI_Images {
     flex-direction: column;
+    height: 800px;
+ 
+  }
+  .foot_grid {
+    flex-direction: column;
+  }
+  .Img_run_foot{
+    width: 90%;
+    margin:auto
+  }
+  .run_image{
+    height:300px;
+    margin: auto;
   }
 }
 @media (max-width: 768px) and (min-width: 320px) {
@@ -69,7 +94,20 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
-  .BMI_Images{
+  .BMI_Images {
+    flex-direction: column;
+    height: 800px;
+    
+  }
+  .foot_grid {
     flex-direction: column;
   }
+  .Img_run_foot{
+    width: 90%;
+    margin:auto;
+    height: 200px;
+  }
+ .run_image{
+  height: 200px;
+ }
 }
