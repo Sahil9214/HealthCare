@@ -287,22 +287,22 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Chest Exercise",
 
-        href: "#",
+        href: "/chest",
       },
       {
         label: "Abs Exercises",
 
-        href: "#",
+        href: "/abs",
       },
       {
         label: "Shoulder Exercises",
 
-        href: "#",
+        href: "/shoulder",
       },
       {
         label: "Bicesps Exercises",
 
-        href: "#",
+        href: "/bicesep",
       },
     ],
   },
