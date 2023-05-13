@@ -77,9 +77,9 @@ export default function Navbar() {
             fontSize={"sm"}
             fontWeight={400}
             variant={"link"}
-            href={"#"}
+            href={"/signup"}
           >
-            Sign In
+            Sign up
           </Button>
           <Button
             as={"a"}
@@ -88,12 +88,12 @@ export default function Navbar() {
             fontWeight={600}
             color={"white"}
             bg={"pink.400"}
-            href={"#"}
+            href={"/login"}
             _hover={{
               bg: "pink.300",
             }}
           >
-            Sign Up
+            Login
           </Button>
         </Stack>
       </Flex>
