@@ -1,20 +1,20 @@
 import React from "react";
-
 import "./App.css";
 import Tracker from "./Pages/Tracker";
 import Pricing from "./Pages/Pricing";
 import Horizontal from "./Components/Horizontal";
+import Navbar from "./Components/Navbar";
+import Allroutes from "./Allroutes/Allroutes";
+
 
 function App() {
   return (
     <div className="App">
       {/* <Horizontal /> */}
-
-      <Tracker />
+        {/*<Tracker /> */>
       {/* <Pricing/> */}
-      {/* <h1 className="text-4xl font-bold underline">
-    Hello world!
-  </h1> */}
+      <Navbar />
+      <Allroutes />
     </div>
   );
 }
