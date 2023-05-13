@@ -1,4 +1,5 @@
 import React from "react";
+
 import "../CSS/Chest.css";
 const Shoulder = () => {
   return (
@@ -264,5 +265,6 @@ const Shoulder = () => {
   </div>
   );
 };
+
 
 export default Shoulder;
