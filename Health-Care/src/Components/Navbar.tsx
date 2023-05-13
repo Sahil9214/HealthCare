@@ -308,7 +308,18 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Coach and guide",
-    href: "#",
+    children: [
+      {
+        label: "Coach",
+
+        href: "/coach",
+      },
+      {
+        label: "Community",
+
+        href: "/community",
+      },
+    ]
   },
   {
     label: "Payment section",
