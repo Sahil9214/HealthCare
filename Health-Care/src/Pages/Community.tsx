@@ -1,12 +1,12 @@
 import React from 'react'
-import styles from "./Coach.module.css";
+import '../Pages/Community.css'
 
 const Community = () => {
   return (
     <div>
-      <div className={styles.div1}>
-        <div id={styles.div2}>
-            <div id={styles.div3}>
+      <div className='div1'>
+        <div id="div2">
+            <div id="div3">
                 <img src="https://www.jefit.com/wp/wp-content/uploads/2020/10/strong-young-man-holding-dumbbells-1536x926.jpg.webp" alt="error"/>
                  <h1><u>Want to Get Stronger in the Gym? Develop Core Stability</u></h1>
             <div>
