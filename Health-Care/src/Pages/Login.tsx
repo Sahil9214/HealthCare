@@ -26,7 +26,7 @@ export default function Login() {
 
   const handleClick = () => {
     const form = { email, password };
-    fetch(`${process.env.REACT_APP_BASE_URL}/user/login`, {
+    fetch(`http://localhost:8080/user/login`, {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
@@ -40,10 +40,10 @@ export default function Login() {
           localStorage.setItem("token", res.token);
           //Swal.fire("Good job!", "Login Successfull", "success");
           toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
+            title: "Good job!",
+            description: "Login Successfull.",
             status: "success",
-            duration: 9000,
+            duration: 4000,
             isClosable: true,
             position: "top",
           });
@@ -51,20 +51,22 @@ export default function Login() {
         } else if (res.msg === "login failed") {
           //Swal.fire("Nah !", "Wrong credentials", "error");
           toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 9000,
+            title: "Nah !",
+            description: "Wrong credentials.",
+            status: "error",
+            duration: 4000,
             isClosable: true,
+            position: "top",
           });
         } else if (res.msg === "Please fill all the fields") {
           //Swal.fire("Wait", "Some fields are missing", "question");
           toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 9000,
+            title: "Wait.",
+            description: "Some fields are missing.",
+            status: "info",
+            duration: 4000,
             isClosable: true,
+            position: "top",
           });
         } else {
           // Swal.fire(
@@ -73,11 +75,12 @@ export default function Login() {
           //   "error"
           // );
           toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 9000,
+            title: "Error.",
+            description: "Something went wrong. Please try after sometime.",
+            status: "error",
+            duration: 4000,
             isClosable: true,
+            position: "top",
           });
         }
       })
@@ -91,8 +94,8 @@ export default function Login() {
           title: "Error",
           description: "Something went wrong. Please try after sometime.",
           status: "error",
-          duration: 3000,
-          //isClosable: true,
+          duration: 4000,
+          isClosable: true,
           position: "top",
         })
       );
