@@ -12,12 +12,10 @@ import OverweightPage from "./Pages/overWeight";
 function App() {
   return (
     <div className="App">
-
-        {/*<Tracker /> */>
+      {/*<Tracker /> */}
       {/* <Pricing/> */}
       <Navbar />
       <Allroutes />
-
     </div>
   );
 }
