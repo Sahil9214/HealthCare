@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -21,12 +22,13 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import Fitness from "../Images/Fitness.png";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box className="sticky top-0">
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -53,13 +55,16 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            ```HealthCareApp```
-          </Text>
+          <Link href="/">
+            <Image
+              src={Fitness}
+              height={"40px"}
+              width={"60px"}
+              textAlign={useBreakpointValue({ base: "center", md: "left" })}
+              fontFamily={"heading"}
+              color={useColorModeValue("gray.800", "white")}
+            ></Image>
+          </Link>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -87,7 +92,7 @@ export default function Navbar() {
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
-            bg={"pink.400"}
+            bg={"blue.400"}
             href={"/login"}
             _hover={{
               bg: "pink.300",
@@ -267,41 +272,46 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inspiration",
+    label: "Workout",
     children: [
       {
-        label: "Explore Design Work",
+        label: "Nutrients",
         subLabel: "Trending Design to inspire you",
         href: "#",
       },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
     ],
   },
   {
-    label: "Find Work",
+    label: "Exercise",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
+        label: "Chest Exercise",
+
         href: "#",
       },
       {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
+        label: "Abs Exercises",
+
+        href: "#",
+      },
+      {
+        label: "Shoulder Exercises",
+
+        href: "#",
+      },
+      {
+        label: "Bicesps Exercises",
+
         href: "#",
       },
     ],
   },
   {
-    label: "Learn Design",
+    label: "Coach and guide",
     href: "#",
   },
   {
-    label: "Hire Designers",
+    label: "Payment section",
     href: "#",
   },
 ];
