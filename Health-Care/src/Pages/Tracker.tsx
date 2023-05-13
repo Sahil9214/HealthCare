@@ -11,6 +11,7 @@ import Tracker3 from "../Images/Tracker3.png";
 import runner from "../Images/runner.png";
 import womenrun from "../Images/womenrun.png";
 import Bmi from "../Components/Bmi";
+import FootStep from "../Components/FootStep";
 const Tracker = () => {
   return (
     <div>
@@ -80,13 +81,23 @@ const Tracker = () => {
           }}>
             We are worry about your health Check your BMI Score{" "}
           </h1>
+          <br/>
+          <br/>
           <div className="BMI_Images">
-            <Image className="run_image" src={womenrun} alt="womenrun" />
+            <img className="run_image" src={womenrun} alt="womenrun" />
           
             {/* <Image className="run_image" src={runner} alt="men runner" /> */}
             <Bmi />
           </div>
         </div>
+        <br/>
+        <div>
+          <FootStep/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <br/>
         <div>
           <Image className="Tracker1_img" src={Tracker3} alt="tracker2" />
