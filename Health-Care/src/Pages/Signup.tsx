@@ -34,7 +34,7 @@ export default function Signup() {
 
   const handleClick = () => {
     const form = { name, gender, email, password };
-    fetch(`${process.env.REACT_APP_BASE_URL}/user/register`, {
+    fetch(`http://localhost:8080/user/register`, {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
@@ -43,6 +43,8 @@ export default function Signup() {
     })
       .then((res) => res.json())
       .then((res) => {
+        //console.log(res.msg);
+
         if (res.msg === "Registerd Successfull.") {
           setName("");
           setGender("");
@@ -50,10 +52,10 @@ export default function Signup() {
           setPass("");
           //Swal.fire("Good job!", "New user has been registered", "success");
           toast({
-            title: "Error",
-            description: "Something went wrong. Please try after sometime.",
-            status: "error",
-            duration: 3000,
+            title: "Good job!",
+            description: "New user has been registered.",
+            status: "success",
+            duration: 4000,
             //isClosable: true,
             position: "top",
           });
@@ -62,20 +64,20 @@ export default function Signup() {
           setEmail("");
           //Swal.fire("Nah !", "Email already in use", "error");
           toast({
-            title: "Error",
-            description: "Something went wrong. Please try after sometime.",
+            title: "Nah !",
+            description: "Email already in use.",
             status: "error",
-            duration: 3000,
+            duration: 4000,
             //isClosable: true,
             position: "top",
           });
         } else if (res.msg === "Please fill all the details.") {
           // Swal.fire("Wait", "Some fields are missing", "question");
           toast({
-            title: "Error",
-            description: "Something went wrong. Please try after sometime.",
-            status: "error",
-            duration: 3000,
+            title: "Wait",
+            description: "Some fields are missing.",
+            status: "info",
+            duration: 4000,
             //isClosable: true,
             position: "top",
           });
@@ -85,7 +87,7 @@ export default function Signup() {
             title: "Error",
             description: "Something went wrong. Please try after sometime.",
             status: "error",
-            duration: 3000,
+            duration: 4000,
             //isClosable: true,
             position: "top",
           });
@@ -101,7 +103,7 @@ export default function Signup() {
           title: "Error",
           description: "Something went wrong. Please try after sometime.",
           status: "error",
-          duration: 3000,
+          duration: 4000,
           //isClosable: true,
           position: "top",
         })

@@ -16,16 +16,7 @@ const Bmi = () => {
   const toast = useToast();
 
 
-  // const handleAge = (e: any) => {
-  //   setAge(e.target.value);
-  // };
-  // const handleHeight = (e: any) => {
-  //   setHeight(e.target.value);
-  // };
-  // const handleWeight = (e: any) => {
-  //   setWeight(e.target.value);
-  // };
-  // console.log(height, weight, age);
+  
 
   const handleSubmit =(e:React.FormEvent<HTMLFormElement>) =>{
     e.preventDefault();
@@ -75,54 +66,11 @@ const Bmi = () => {
     })
   }
   
-  // const handleSubmit = () => {
-  //   let value = weight / Math.pow(height / 100, 2);
 
-  //   if (value <= 18.5) {
-  //     toast({
-  //       position: "top",
-  //       title: "BMi calculation",
-  //       description: `BMI value ${value}"\n" You are underweight`,
-  //       status: "success",
-  //       duration: 4000,
-  //       isClosable: true,
-  //     });
-  //   } else if (value > 18.5 && value <= 24.9) {
-  //     toast({
-  //       position: "top",
-  //       title: "BMi calculation",
-  //       description: `BMI value ${value}"\n" You are Healthy person`,
-  //       status: "success",
-  //       duration: 4000,
-  //       isClosable: true,
-  //     });
-  //   } else if (value > 25 && value < 29.9) {
-  //     toast({
-  //       position: "top",
-  //       title: "BMi calculation",
-  //       description: `BMI value ${value}"\n" You are Overweight`,
-  //       status: "success",
-  //       duration: 4000,
-  //       isClosable: true,
-  //     });
-  //   } else {
-  //     toast({
-  //       position: "top",
-  //       title: "BMi calculation",
-  //       description: `BMI value ${value}"\n"You are suffering from obesity U are in danger please consult the doctor `,
-  //       status: "success",
-  //       duration: 4000,
-  //       isClosable: true,
-  //     });
-  //   }
-  //   setAge(0);
-  //   setHeight(0);
-  //   setWeight(0);
-  // };
 
   return (
     <form style={{ width: "100%" }} onSubmit={handleSubmit}>
-      <Box width={"80%"}>
+      <Box width={"80%"} margin={"auto"}>
         <FormLabel
           style={{
             fontSize: "23px",
@@ -190,7 +138,7 @@ const Bmi = () => {
 
         <br />
         <br />
-        <Button type='submit'>Calculate</Button>
+        <Button className="text-4xl " type='submit'>Calculate</Button>
       </Box>
     </form>
   );
