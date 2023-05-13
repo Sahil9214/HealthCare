@@ -6,7 +6,7 @@ import Shoulder from "../Pages/Shoulder";
 import Tracker from "../Pages/Tracker";
 import Chest from "../Pages/Chest";
 import Abs from "../Pages/Abs";
-import Shoulder from "../Pages/Shoulder";
+
 import Bicesep from "../Pages/Bicesep";
 
 
