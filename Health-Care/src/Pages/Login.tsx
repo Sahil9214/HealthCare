@@ -26,7 +26,7 @@ export default function Login() {
 
   const handleClick = () => {
     const form = { email, password };
-    fetch(`http://localhost:8080/user/login`, {
+    fetch(`https://blushing-crab-purse.cyclic.app/user/login`, {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
