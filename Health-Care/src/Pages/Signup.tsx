@@ -34,7 +34,7 @@ export default function Signup() {
 
   const handleClick = () => {
     const form = { name, gender, email, password };
-    fetch(`http://localhost:8080/user/register`, {
+    fetch(`https://blushing-crab-purse.cyclic.app/user/register`, {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
