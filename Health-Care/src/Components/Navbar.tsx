@@ -297,7 +297,7 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Shoulder Exercises",
 
-        href: "#",
+        href: "/shoulder",
       },
       {
         label: "Bicesps Exercises",
